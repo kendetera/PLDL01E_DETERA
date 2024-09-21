@@ -1,6 +1,8 @@
 # initializaton of values
 hdmf_contribution = 100
 philhealth_contrib = 0
+sss_contrib = 0
+withholding_tax = 0
 
 # inputs
 employee_name = input("Enter name of employee: \n")
@@ -140,3 +142,11 @@ else:
     philhealth_contrib = 50000
 
 # withholding tax
+if gross_earnings < 20833:
+    withholding_tax = 0
+elif 20833 <= gross_earnings <= 33332:
+    withholding_tax = 0 + (gross_earnings - 20833) * 0.15
+elif 33333 <= gross_earnings <= 66666:
+    withholding_tax = 1875 + (gross_earnings - 33333) * 0.20
+elif 66667 <= gross_earnings <= 166666:
+    withholding_tax = 8542.80 + (gross_earnings - 66667) * 0.25
