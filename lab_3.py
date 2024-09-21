@@ -130,6 +130,8 @@ elif 28750 <= gross_earnings <= 29249.99:
     sss_contrib = 900
 elif 29250 <= gross_earnings <= 29749.99:
     sss_contrib = 900
+else:
+    sss_contrib = 900
 
 # philheath contribution
 if gross_earnings < 10000:
@@ -150,3 +152,9 @@ elif 33333 <= gross_earnings <= 66666:
     withholding_tax = 1875 + (gross_earnings - 33333) * 0.20
 elif 66667 <= gross_earnings <= 166666:
     withholding_tax = 8542.80 + (gross_earnings - 66667) * 0.25
+elif 166667 <= gross_earnings <= 666666:
+    withholding_tax = 33541.80 + (gross_earnings - 166667) * 0.30
+else:
+    withholding_tax = 138541.80 + (gross_earnings - 666667) * 0.35
+
+# displaying of outputs
