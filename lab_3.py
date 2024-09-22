@@ -1,4 +1,5 @@
-# initializaton of values
+# initialization of values
+
 hdmf_contribution = 100
 philhealth_contrib = 0
 sss_contrib = 0
@@ -133,7 +134,7 @@ elif 29250 <= gross_earnings <= 29749.99:
 else:
     sss_contrib = 900
 
-# philheath contribution
+# philhealth contribution
 if gross_earnings < 10000:
     philhealth_contrib = 0
 elif gross_earnings == 10000:
@@ -141,7 +142,7 @@ elif gross_earnings == 10000:
 elif 10001 <= gross_earnings <= 99999.99:
     philhealth_contrib = gross_earnings * 0.05
 else:
-    philhealth_contrib = 50000
+    philhealth_contrib = 5000
 
 # withholding tax
 if gross_earnings < 20833:
@@ -157,4 +158,35 @@ elif 166667 <= gross_earnings <= 666666:
 else:
     withholding_tax = 138541.80 + (gross_earnings - 666667) * 0.35
 
+deductions = absences + tardiness + withholding_tax + sss_contrib + philhealth_contrib + hdmf_contribution
+net_pay = gross_earnings - deductions
+
 # displaying of outputs
+print("                                                                       ")
+print("=======================================================================")
+print("Employee name: ", employee_name)
+print("Employee code: ", employee_code)
+print("Company name: ", company_name)
+print("Department: ", department)
+print("Cut-off: ", salary_date_cutoff)
+print("Pay Period: ", salary_date_cutoff)
+print("                                                                       ")
+print("=======================================================================")
+print("EARNINGS")
+print("Basic Pay: ", basic_pay)
+print("Overtime Pay: ", overtime_pay)
+print("Honorarium: ", honorarium)
+print("Absences: ", absences)
+print("Tardy: ", tardiness)
+print("                                                                       ")
+print("=======================================================================")
+print("DEDUCTIONS")
+print("Wtihholding Tax: ", withholding_tax)
+print("SSS - Contribution: ", sss_contrib)
+print("HDMF Contribution: ", hdmf_contribution)
+print("Philhealth Contribution: ", philhealth_contrib)
+print("                                                                       ")
+print("=======================================================================")
+print("Gross Earnings: ", gross_earnings)
+print("Deductions: ", deductions)
+print("Net Pay: ", net_pay)
