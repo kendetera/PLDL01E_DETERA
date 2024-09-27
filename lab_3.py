@@ -93,44 +93,6 @@ elif 19250 <= gross_earnings <= 19749.99:
     sss_contrib = 877.50
 elif 19750 <= gross_earnings <= 20249.99:
     sss_contrib = 900
-elif 20250 <= gross_earnings <= 20749.99:
-    sss_contrib = 900
-elif 20750 <= gross_earnings <= 21249.99:
-    sss_contrib = 900
-elif 21250 <= gross_earnings <= 21749.99:
-    sss_contrib = 900
-elif 21750 <= gross_earnings <= 22249.99:
-    sss_contrib = 900
-elif 22250 <= gross_earnings <= 22749.99:
-    sss_contrib = 900
-elif 22750 <= gross_earnings <= 23249.99:
-    sss_contrib = 900
-elif 23250 <= gross_earnings <= 23749.99:
-    sss_contrib = 900
-elif 23750 <= gross_earnings <= 24249.99:
-    sss_contrib = 900
-elif 24250 <= gross_earnings <= 24749.99:
-    sss_contrib = 900
-elif 24750 <= gross_earnings <= 25249.99:
-    sss_contrib = 900
-elif 25250 <= gross_earnings <= 25749.99:
-    sss_contrib = 900
-elif 25750 <= gross_earnings <= 26249.99:
-    sss_contrib = 900
-elif 26250 <= gross_earnings <= 26749.99:
-    sss_contrib = 900
-elif 26750 <= gross_earnings <= 27249.99:
-    sss_contrib = 900
-elif 27250 <= gross_earnings <= 27749.99:
-    sss_contrib = 900
-elif 27750 <= gross_earnings <= 28249.99:
-    sss_contrib = 900
-elif 28250 <= gross_earnings <= 28749.99:
-    sss_contrib = 900
-elif 28750 <= gross_earnings <= 29249.99:
-    sss_contrib = 900
-elif 29250 <= gross_earnings <= 29749.99:
-    sss_contrib = 900
 else:
     sss_contrib = 900
 
