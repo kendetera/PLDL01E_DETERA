@@ -91,8 +91,6 @@ elif 18750 <= gross_earnings <= 19249.99:
     sss_contrib = 855
 elif 19250 <= gross_earnings <= 19749.99:
     sss_contrib = 877.50
-elif 19750 <= gross_earnings <= 20249.99:
-    sss_contrib = 900
 else:
     sss_contrib = 900
 
