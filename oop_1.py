@@ -140,6 +140,7 @@ class Employee:
         print("Absences: %.2f" % self.emp_absences)
         print("Tardiness: %.2f" % self.emp_tardiness)
         print("SSS Contribution: %.2f" % self.sss_contribution)
+        print("Tax Contribution: %.2f" % self.tax_contribution)
         print("Philhealth Contribution: %.2f" % self.philhealth_contribution)
         print("Total Deduction: %.2f" % self.deduction)
         print("Net Income: %.2f" % self.net_pay)
