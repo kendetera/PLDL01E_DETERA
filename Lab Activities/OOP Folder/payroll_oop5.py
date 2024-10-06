@@ -1,5 +1,4 @@
 # calling of payroll_oop2.py
-# test push
 import payroll_oop2
 
 # Create an instance of the Employee_Salary class:
