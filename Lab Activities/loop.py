@@ -18,7 +18,7 @@ class Employee:
         self.emp_num_of_absences = int(input("Employee absences: "))
         self.emp_num_tardiness = int(input("Employee tardiness: "))
 
-    # calculation for basic pay, overtime pay, gross earnings, absences, and tardiness
+    # method for calculating the basic pay, overtime pay, gross earnings, absences, and tardiness
     def emp_salary_computation(self):
         self.basic_pay = self.emp_rate_per_hour * self.emp_num_of_hours_per_payday
         self.overtime_pay = self.emp_rate_per_hour * self.emp_hours_overtime
