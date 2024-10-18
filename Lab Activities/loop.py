@@ -51,6 +51,7 @@ class Employee:
         else:
             self.philhealth_contribution = self.emp_gross_earnings * 0.0450
 
+    # method for determining tax contribution
     def emp_tax_contribution(self):
         tax_table = [
             (0, 10416.99, 0.00, 0.00), (10417, 16666.99, 0.15, 0.00), (16667, 33332.99, 0.20, 937.50),
