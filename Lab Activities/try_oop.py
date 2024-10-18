@@ -21,7 +21,7 @@ class Microwave:
 
     # giving our Microwave class method that will be called when the microwave is done running
     def run_finished(self) -> None:
-        print(f'Microwave {self.brand} has finished heating your goddamn food.')
+        print(f'Microwave {self.brand} has finished running.')
 
     # giving our Microwave class a turn off method
     def turned_off(self) -> None:
