@@ -1,6 +1,8 @@
 import Activity5_Class
 
-enrolment = Activity5_Class.Assessment()
+sections = []
+
+enrolment = Activity5_Class.Assessment(sections)
 subject_units = enrolment.get_total_units()
 
 
