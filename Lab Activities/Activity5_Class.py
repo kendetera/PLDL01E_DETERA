@@ -85,14 +85,14 @@ def main():
 
     # compute of tuition fee lecture
     tuition_fee = assessment.get_tuition_fee()
-    print(f'Tuition Fee Lecture: P {tuition_fee:.2f}')
+    print(f'\nTuition Fee Lecture: P {tuition_fee:.2f}\n')
 
     # input downpayment
     downpayment = float(input("Enter downpayment amount: "))
 
     # compute of assessment amount
     assessment_amount = assessment.get_total_due(downpayment)
-    print(f'Total Due: P {assessment_amount:.2f}')
+    print(f'\nTotal Due: P {assessment_amount:.2f}\n')
 
     # compute payment per term
     payment_term = assessment.get_payment_per_term(assessment_amount)
