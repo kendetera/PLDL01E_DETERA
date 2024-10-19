@@ -87,7 +87,7 @@ def main():
     tuition_fee = assessment.get_tuition_fee()
     print(f'\nTuition Fee Lecture: P {tuition_fee:.2f}\n')
 
-    # input downpayment
+    # input down payment
     downpayment = float(input("Enter downpayment amount: "))
 
     # compute of assessment amount
