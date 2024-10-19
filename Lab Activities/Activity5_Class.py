@@ -87,6 +87,8 @@ def main():
 
     # printing the output
     print(f'''
+    ***********************
+    
     Date Printed: {current_date}
     Student name: {student_info.student_name}
     Course: {student_info.student_course}
