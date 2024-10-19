@@ -1,3 +1,6 @@
+import time
+
+
 class Microwave:
     def __init__(self, brand: str, power_rating: str) -> None:
         self.brand = brand
@@ -16,12 +19,14 @@ class Microwave:
     def run(self, seconds: int) -> None:
         if self.turn_on:
             print(f'Running Microwave {self.brand} for {seconds} seconds.')
+            time.sleep(seconds)
         else:
             print(f'Turn on the Microwave first!')
 
     # giving our Microwave class method that will be called when the microwave is done running
     def run_finished(self) -> None:
         print(f'Microwave {self.brand} has finished running.')
+        time.sleep(3)
 
     # giving our Microwave class a turn off method
     def turned_off(self) -> None:
@@ -31,10 +36,11 @@ class Microwave:
         else:
             print(f'Microwave {self.brand} is already turned off.')
 
+
 Bosch: Microwave = Microwave('Bosch', '1000W')
 print(Bosch.brand, Bosch.power_rating)
-Bosch.run(30)
+Bosch.run(5)
 Bosch.turned_on()
-Bosch.run(30)
+Bosch.run(5)
 Bosch.run_finished()
 Bosch.turned_off()

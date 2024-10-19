@@ -1,6 +1,7 @@
 class Employee:
     hdmf = 100.00
     # initialization or constructor method of our class
+
     def __init__(self):
         # input for employee's information
         self.hdmf_contribution = 100.00
@@ -88,6 +89,7 @@ class Employee:
         print("Philhealth Contribution: %.2f" % self.philhealth_contribution)
         print("Total Deduction: %.2f\n" % self.deduction)
         print("Net Income: %.2f" % self.net_pay)
+
 
 # creating an object of the class Employee
 emp1 = Employee()
