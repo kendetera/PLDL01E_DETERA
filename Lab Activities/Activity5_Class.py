@@ -48,6 +48,9 @@ class Assessment:
         # giving our class a method for calculating the payment per term
         return self.get_total_due(self.downpayment) / 3
 
+    def get_all_assessment_fees(self):
+        return self.assessment_fees
+
 
 class SectionSubjectUnit:
     def __init__(self, assessment):
