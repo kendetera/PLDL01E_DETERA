@@ -48,6 +48,36 @@ class Assessment:
         # giving our class a method for calculating the payment per term
         return self.get_total_due(self.downpayment) / 3
 
+
+class SectionSubjectUnit:
+    def __init__(self, assessment):
+        self.assessment = assessment
+
+    def get_sections_subjects_units(self):
+    # input of sections, subjects, and units
+        num_sections = int(input("Enter number of sections: "))
+        for _ in range(num_sections):
+            section = input("Enter section: ")
+            num_subjects = int(input(f'Enter number of subjects for section {section}: '))
+            for _ in range(num_subjects):
+                subject = input("Enter subject: ")
+                units = int(input(f'Enter number of units for {subject}: '))
+                self.assessment.add_subject(section, subject, units)
+
+
+class FeeInputs:
+    # initialization or constructor method of our class
+    def __init__(self, assessment):
+        self.assessment = assessment
+
+    def get_assessment_fees(self):
+        # input of other assessment fees
+        num_fees = int(input("Enter number of other assessment fees: "))
+        for _ in range(num_fees):
+            fee_name = input("Enter name of fee: ")
+            fee_amount = float(input(f'Enter the amount to be paid for {fee_name}: '))
+            self.assessment.add_assessment_fee(fee_name, fee_amount)
+
 def main():
     # input of student details
     name = input("Enter student name: ")
@@ -59,24 +89,16 @@ def main():
     # creating an instance of the StudentInfo class
     student_info = StudentInfo(name, course, student_number, year)
     assessment = Assessment()
+    section_subject_unit = SectionSubjectUnit(assessment)
+    fee_inputs = FeeInputs(assessment)
 
-    # input of sections, subjects, and units
-    num_sections = int(input("Enter number of sections: "))
-    for _ in range(num_sections):
-        section = input("Enter section: ")
-        num_subjects = int(input(f'Enter number of subjects for section {section}: '))
-        for _ in range(num_subjects):
-            subject = input("Enter subject: ")
-            units = int(input(f'Enter number of units for {subject}: '))
-            assessment.add_subject(section, subject, units)
+    # calling the methods of the SectionSubjectUnit
+    section_subject_unit.get_sections_subjects_units()
 
-    # input of other assessment fees
-    num_fees = int(input("Enter number of other assessment fees: "))
-    for _ in range(num_fees):
-        fee_name = input("Enter name of fee: ")
-        fee_amount = float(input(f'Enter the amount to be paid for {fee_name}: '))
-        assessment.add_assessment_fee(fee_name, fee_amount)
+    #calling the methods of the FeeInputs
+    fee_inputs.get_assessment_fees()
 
+    # input of down payment amount
     downpayment = float(input("Enter downpayment amount: "))
 
     # calling the methods of the Assessment class
@@ -88,7 +110,7 @@ def main():
     # printing the output
     print(f'''
     ***********************
-    
+
     Date Printed: {current_date}
     Student name: {student_info.student_name}
     Course: {student_info.student_course}
@@ -107,6 +129,7 @@ def main():
     Midterm: P {payment_term:.2f}
     Finals: P {payment_term:.2f}
     ''')
+
 
 # calling the main function
 if __name__ == "__main__":
