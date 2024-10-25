@@ -30,7 +30,7 @@ def display_assessment_fees(assessment, tuition_fee, total_due, total_assessment
     # display the assessment of fees
     print(f'''
          ASSESSMENT OF FEES
-    Tuition Fee: P {tuition_fee:.2f}
+    Tuition Fee Lecture: P {tuition_fee:.2f}
     ADU Chronicle: P {assessment.adu_chronicle:.2f}
     Athletic: P {assessment.athletic:.2f}
     Audio Visual Library: P {assessment.audio_visual:.2f}
