@@ -29,6 +29,7 @@ class Assessment: # Class for assessment
         self.student = student
         self.downpayment = 0
         self.tuition_fee = 0
+        self.total_due = 0
         self.total_units = self.student.total_units()
         self.tuition_fee_per_unit = 1551.00
         self.adu_chronicle = float(input("Enter ADU Chronicle fee: "))
@@ -54,10 +55,11 @@ class Assessment: # Class for assessment
         self.tuition_fee = self.total_units * self.tuition_fee_per_unit
         return self.tuition_fee
 
-    def total_due(self): # method to get the total due
-        return self.total_assessment_amount() - self.downpayment
+    def get_total_due(self): # method to get the total due
+        self.total_due = self.get_total_assessment_amount() - self.downpayment
+        return self.total_due
 
-    def total_assessment_amount(self): # method to get the total assessment amount
+    def get_total_assessment_amount(self): # method to get the total assessment amount
         return (self.tuition_fee + self.adu_chronicle + self.athletic + self.audio_visual + self.ausg +
                 self.cultural_fee + self.energy_cost_aircon_classroom + self.guidance + self.insurance +
                 self.learning_management_system + self.library_fee + self.medical_and_dental + self.registration +
