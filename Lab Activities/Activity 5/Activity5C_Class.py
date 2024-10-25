@@ -5,14 +5,9 @@ def main():
     student = Activity5_Class.StudentInfo()
     assessment = Activity5_Class.Assessment(student)
 
-    # get the values from the methods
-    tuition_fee = assessment.get_tuition_fee()
-    total_due = assessment.total_due()
-    total_assessment_amount = assessment.total_assessment_amount()
-
     # call the display function
     display_student_info(student)
-    display_assessment_fees(assessment, tuition_fee, total_due, total_assessment_amount)
+    display_assessment_fees(assessment, student)
 
 def display_student_info(student):
     # display the student information
@@ -22,15 +17,13 @@ def display_student_info(student):
     Student Number: {student.student_number}
     Academic Year: {student.academic_year}
     Date Printed: {student.date_printed}
-
-    **************************
     ''')
 
-def display_assessment_fees(assessment, tuition_fee, total_due, total_assessment_amount):
+def display_assessment_fees(assessment, student):
     # display the assessment of fees
-    print(f'''
+    print(f'''\t**************************\n
          ASSESSMENT OF FEES
-    Tuition Fee Lecture: P {tuition_fee:.2f}
+    Tuition Fee Lecture: P {assessment.get_tuition_fee():.2f}
     ADU Chronicle: P {assessment.adu_chronicle:.2f}
     Athletic: P {assessment.athletic:.2f}
     Audio Visual Library: P {assessment.audio_visual:.2f}
@@ -48,20 +41,23 @@ def display_assessment_fees(assessment, tuition_fee, total_due, total_assessment
     Student Nurturance Fee: P {assessment.student_nurturance_fee:.2f}
     Technology Fee: P {assessment.technology_fee:.2f}
     Test Papers: P {assessment.test_papers:.2f}
+    
     **************************
 
-    Assessment Amount: P {total_assessment_amount:.2f}
+    Assessment Amount: P {assessment.get_total_assessment_amount():.2f}
     Downpayment: P {assessment.downpayment:.2f}
 
     **************************
 
-    Total Due: P {total_due:.2f}
+    Total Due: P {assessment.get_total_due():.2f}
 
     **************************
 
-    Prelims: P {total_due / 3:.2f}
-    Midterms: P {total_due / 3:.2f}
-    Finals: P {total_due / 3:.2f}
+    Prelims: P {assessment.get_total_due() / 3:.2f}
+    Midterms: P {assessment.get_total_due() / 3:.2f}
+    Finals: P {assessment.get_total_due() / 3:.2f}
+    
+    Date Printed: {student.date_printed}
     ''')
 
 if __name__ == '__main__': # call the main function
