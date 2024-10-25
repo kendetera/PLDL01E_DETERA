@@ -38,19 +38,19 @@ def display_assessment_fees(assessment, tuition_fee, total_due, total_assessment
     Cultural: P {assessment.cultural_fee:.2f}
     Energy Cost, AirCon Classroom: P {assessment.energy_cost_aircon_classroom:.2f}
     Guidance: P {assessment.guidance:.2f}
-    Insurance: P {assessment.insurance:.2f}
+    Insurance Fee: P {assessment.insurance:.2f}
     Learning Management System: P {assessment.learning_management_system:.2f}
-    Library: P {assessment.library_fee:.2f}
+    Library Fee: P {assessment.library_fee:.2f}
     Medical and Dental: P {assessment.medical_and_dental:.2f}
     Registration: P {assessment.registration:.2f}
     RSO: P {assessment.rso:.2f}
     Student Activities Fee: P {assessment.student_activities_fee:.2f}
     Student Nurturance Fee: P {assessment.student_nurturance_fee:.2f}
-    Technology: P {assessment.technology_fee:.2f}
+    Technology Fee: P {assessment.technology_fee:.2f}
     Test Papers: P {assessment.test_papers:.2f}
     **************************
 
-    Total Assessment: P {total_assessment_amount:.2f}
+    Assessment Amount: P {total_assessment_amount:.2f}
     Downpayment: P {assessment.downpayment:.2f}
 
     **************************

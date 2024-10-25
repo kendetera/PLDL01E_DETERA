@@ -54,7 +54,7 @@ def display_assessment_fees(assessment, student):
     
     **************************
 
-    Total Assessment: P {assessment.get_total_assessment_amount():.2f}
+    Assessment Amount: P {assessment.get_total_assessment_amount():.2f}
     Downpayment: P {assessment.downpayment:.2f}
 
     **************************
