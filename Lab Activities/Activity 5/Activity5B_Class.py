@@ -25,6 +25,7 @@ def display_student_info(student): # display the student information
 def display_sections_subjects_units(student): # display the sections, subjects, and units
     for section, subject, units in student.get_subjects_info():
         print(f'\tSection: {section}, Subject: {subject}, Units: {units}')
+    print(f'\tTotal Units: {student.total_units()}')
 
 # call the main function
 if __name__ == "__main__":
