@@ -11,16 +11,18 @@ class CustomerInfo:
 
 class ElectricBill:
     def __init__(self):
+        # initialize values for electric bill status
         self.amount_due = int(input("Enter amount due: "))
         self.remaining_balance = int(input("Enter remaining balance: "))
         self.total_amount_due = 0
         self.previous_billing_info = ''
 
     def get_previous_billing_info(self):
+        # this method determines if there is still a remaining balance of the customer
         if self.remaining_balance == 0:
-            return "Thank You"
+            return "Thank You"  # if the remaining balance is only equal to 0
         else:
-            return "Please pay your remaining balance"
+            return "Please pay your remaining balance"  # if remaining balance is greater than 0
 
     def get_total_amount_due(self):  # calculate for the total amount due
         self.total_amount_due = self.amount_due + self.remaining_balance
@@ -29,6 +31,7 @@ class ElectricBill:
 
 class ServiceInfo:
     def __init__(self, customer):
+        # initialize our values for service info status
         self.customer = customer
         self.service_id_number = self.customer.customer_account_number
         self.rate = input("Residential or Business: ")
@@ -41,6 +44,7 @@ class ServiceInfo:
 
 class BillingInfo:
     def __init__(self, bill):
+        # initialize our values for billing info status
         self.bill = bill
         self.bill_date = input("Enter Bill Date: ")
         self.meter_reading_date = input("Enter meter reading date: ")
@@ -53,6 +57,7 @@ class BillingInfo:
 
 class BillComputationSummary:
     def __init__(self):
+        # gather inputs or amounts for each charges
         self.generation = input("Enter Generation charge: ")
         self.transmission = input("Enter Transmission charge: ")
         self.system_loss = input("Enter System Loss charge: ")

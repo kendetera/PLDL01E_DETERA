@@ -23,7 +23,7 @@ def main():
     display_bill_computation_summary(bill_computation_summary)
 
 
-def display_customer_info(customer_info):
+def display_customer_info(customer_info):  # display the customer infos
     print(f'''
     {customer_info.customer_name}
     {customer_info.customer_street_address}
@@ -35,19 +35,19 @@ def display_customer_info(customer_info):
     ''')
 
 
-def display_electric_bill(electric_bill):
+def display_electric_bill(electric_bill):  # display the electric bill info status box
     print(f'''
     Balance From Previous Billing 
-    {electric_bill.remaining_balance} \t\t {electric_bill.get_previous_billing_info()}
+    {electric_bill.remaining_balance} \t||\t {electric_bill.get_previous_billing_info()}
 
     Current Charges
-    {electric_bill.amount_due} \t\t {electric_bill.total_amount_due}
+    {electric_bill.amount_due} \t||\t {electric_bill.total_amount_due}
 
     **************************
     ''')
 
 
-def display_service_info(service_info):
+def display_service_info(service_info):  # display the service info status box
     print(f'''
     Service ID Number: {service_info.service_id_number}
     Rate: {service_info.rate}
@@ -59,7 +59,7 @@ def display_service_info(service_info):
     ''')
 
 
-def display_billing_info(billing_info):
+def display_billing_info(billing_info):  # display the billing info status box
     print(f''''
     Bill Date: {billing_info.bill_date}
     Meter Reading Date: {billing_info.meter_reading_date}
@@ -73,7 +73,7 @@ def display_billing_info(billing_info):
     ''')
 
 
-def display_bill_computation_summary(bill_computation_summary):
+def display_bill_computation_summary(bill_computation_summary):  # display the bill computation summary box
     print(f'''
     Generation: {bill_computation_summary.generation}
     Transmission: {bill_computation_summary.transmission}
@@ -90,5 +90,6 @@ def display_bill_computation_summary(bill_computation_summary):
     ''')
 
 
+# calling the main function
 if __name__ == '__main__':
     main()
