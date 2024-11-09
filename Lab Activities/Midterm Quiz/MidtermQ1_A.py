@@ -68,6 +68,7 @@ def display_billing_info(billing_info):  # display the billing info status box
     Total KWH: {billing_info.total_kwh}    
     Total Current Amount: {billing_info.total_current_amount}
     Next Meter Reading: {billing_info.next_meter_reading}
+    Amount Due: {billing_info.amount_due}
     
     **************************
     ''')

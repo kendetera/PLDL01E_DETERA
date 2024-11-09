@@ -46,13 +46,19 @@ class BillingInfo:
     def __init__(self, bill):
         # initialize our values for billing info status
         self.bill = bill
+        self.amount_due = 0
         self.bill_date = input("Enter Bill Date: ")
         self.meter_reading_date = input("Enter meter reading date: ")
         self.bill_period = input("Enter bill period: ")
         self.due_date = input("Enter due date: ")
-        self.total_kwh = input("Enter Total KWH: ")
+        self.rate_per_kwh = float(input("Enter rate per kwh: "))
+        self.total_kwh = float(input("Enter Total KWH: "))
         self.total_current_amount = self.bill.total_amount_due
         self.next_meter_reading = input("Enter next meter reading date: ")
+
+    def get_amount_due(self):
+        self.amount_due = self.rate_per_kwh * self.total_kwh
+        return self.amount_due
 
 
 class BillComputationSummary:
