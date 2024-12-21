@@ -107,7 +107,7 @@ def main():
     gui.create_textbox(x=640, y=810, bg='light gray')
 
     # Section Labels
-    gui.create_label(x=20, y=100, text='EMPLOYEE BASIC INFO:', font=('Arial', 12, 'bold'))
+    gui.create_label(x=30, y=100, text='EMPLOYEE BASIC INFO:', font=('Arial', 12, 'bold'))
     gui.create_label(x=30, y=400, text='BASIC INCOME:', font=('Arial', 12, 'bold'))
     gui.create_label(x=30, y=540, text='HONORARIUM INCOME:', font=('Arial', 12, 'bold'))
     gui.create_label(x=30, y=680, text='OTHER INCOME:', font=('Arial', 12, 'bold'))
@@ -132,7 +132,7 @@ def main():
     civil_status_combo.current()
 
     # Profile Image
-    gui.create_image(image_path='no_profile.jpg', x=1, y=1, width=260, height=180)
+    gui.create_image(image_path='no_profile.jpg', x=40, y=130, width=150, height=145)
 
     window.mainloop()
 

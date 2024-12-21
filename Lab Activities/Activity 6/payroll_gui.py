@@ -1,4 +1,3 @@
-import tkinter as tk
 from tkinter import Label, Text, Button, ttk
 from PIL import Image, ImageTk
 
