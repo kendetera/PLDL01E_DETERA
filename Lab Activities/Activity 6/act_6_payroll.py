@@ -119,10 +119,10 @@ def main():
     # Buttons
     gui.create_button1(x=180, y=320, text='SEARCH')
     gui.create_button(x=430, y=870, text='GROSS INCOME', bg='#007bff')
-    gui.create_button(x=528, y=870, text='NET INCOME', bg='#007bff')
+    gui.create_button(x=525, y=870, text='NET INCOME', bg='#007bff')
     gui.create_button(x=620, y=870, text='SAVE', bg='#17a2b8', fg='black')
-    gui.create_button(x=698, y=870, text='UPDATE', bg='#17a2b8', fg='black')
-    gui.create_button(x=776, y=870, text='NEW', bg='#ffc107', fg='black')
+    gui.create_button(x=695, y=870, text='UPDATE', bg='#17a2b8', fg='black')
+    gui.create_button(x=775, y=870, text='NEW', bg='#ffc107', fg='black')
 
     # Combo Box for Civil Status
     civil_status = tk.StringVar()
