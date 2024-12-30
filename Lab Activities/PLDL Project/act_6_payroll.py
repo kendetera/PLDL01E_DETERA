@@ -7,7 +7,7 @@ def main():
     gui = PayrollGUI(window)
 
     # Heading
-    gui.create_label(x=260, y=20, text="SE-RI'S CHOICE PAYROLL", font=('Times New Roman', 30, 'bold'))
+    gui.create_label(x=220, y=25, text="SE-RI'S CHOICE PAYROLL", font=('Times New Roman', 30, 'bold'))
 
     # Employee Basic Info Labels
     gui.create_label(x=40, y=290, text='Employee Number')

@@ -6,9 +6,10 @@ class PayrollGUI:
         self.window = window
         self.window.title('Payroll Check GUI')
         self.window.geometry("900x1520")
+        self.window.configure(bg='#f2f0e3')
 
-    def create_label(self, x, y, text, font=('Arial', 10)):
-        label = Label(self.window, text=text, font=font)
+    def create_label(self, x, y, text, font=('Arial', 10), bg='#f2f0e3'):
+        label = Label(self.window, text=text, font=font, bg=bg)
         label.place(x=x, y=y)
         return label
 
@@ -30,7 +31,7 @@ class PayrollGUI:
     def create_image(self, image_path, x, y, width, height):
         image = Image.open(image_path)
         resized_image = ImageTk.PhotoImage(image.resize((width, height)))
-        label = Label(self.window, image=resized_image)
+        label = Label(self.window, image=resized_image, bg='#f2f0e3', borderwidth=2, relief='solid')
         label.image = resized_image  # Keep a reference to avoid garbage collection
         label.place(x=x, y=y)
         return label
