@@ -6,33 +6,42 @@ class LoginGUI:
     def __init__(self, root):
         self.root = root
         self.root.title("Login")
-        self.root.geometry("500x550")
-        self.root.configure(bg='#2c3e50')
+        self.root.geometry("390x550")
+        self.root.configure(bg='#f2f0e3')
+
+        # Load the image
+        self.photo = Image.open("profile_circle.png")
+        self.photo = self.photo.resize((150, 150))  # Resize the image if needed
+        self.icon = ImageTk.PhotoImage(self.photo)
+
+        # Create a Label widget to display the image
+        self.image_label = tk.Label(self.root, image=self.icon, bg='#f2f0e3', borderwidth=2, relief='solid')
+        self.image_label.grid(row=0, column=0, columnspan=2, pady=(50, 20))
 
         # Style configuration
         style = ttk.Style()
-        style.configure('TFrame', background='#2c3e50')
-        style.configure('TLabel', background='#2c3e50', foreground='#ecf0f1', font=('Arial', 12))
+        style.configure('TFrame', background='#f8f3f3', relief='raised', borderwidth=10)
+        style.configure('TLabel', background='#f8f3f3', foreground='black', font=('Arial', 12))
         style.configure('TEntry', font=('Arial', 12))
-        style.configure('TButton', background='#3498db', foreground='#000000', font=('Arial', 12, 'bold'))
+        style.configure('TButton', background='#3498db', foreground='black', font=('Arial', 12, 'bold'))
 
         # Create a frame for the login form with additional padding at the top
-        self.frame = ttk.Frame(self.root, padding="100 200 150 150")
-        self.frame.grid(row=0, column=0, sticky=(tk.W, tk.E, tk.N, tk.S))
+        self.frame = ttk.Frame(self.root, padding="20 20 20 20")
+        self.frame.grid(row=1, column=0, columnspan=2, padx=20, pady=20, sticky=tk.NSEW)
 
         # Username label and entry
         self.username_label = ttk.Label(self.frame, text="Username:")
-        self.username_label.grid(row=20, column=0, sticky=tk.W, pady=5)
+        self.username_label.grid(row=0, column=0, sticky=tk.W, pady=5)
         self.username_entry = ttk.Entry(self.frame, width=35)
-        self.username_entry.grid(row=20, column=1, pady=5)
+        self.username_entry.grid(row=0, column=1, pady=5)
 
         # Password label and entry
         self.password_label = ttk.Label(self.frame, text="Password:")
-        self.password_label.grid(row=30, column=0, sticky=tk.W, pady=5)
+        self.password_label.grid(row=1, column=0, sticky=tk.W, pady=5)
 
         # Frame for password entry and eye icon
         self.password_frame = ttk.Frame(self.frame)
-        self.password_frame.grid(row=30, column=1, pady=5, sticky=tk.W)
+        self.password_frame.grid(row=1, column=1, sticky=tk.W)
 
         # Password entry
         self.password_entry = ttk.Entry(self.password_frame, width=30, show="*")
@@ -49,7 +58,7 @@ class LoginGUI:
 
         # Login button
         self.login_button = ttk.Button(self.frame, text="Login")
-        self.login_button.grid(row=40, column=1, sticky=tk.E, pady=5)
+        self.login_button.grid(row=2, column=1, sticky=tk.E, pady=5)
 
     def toggle_password(self):
         if self.password_entry.cget('show') == '*':
