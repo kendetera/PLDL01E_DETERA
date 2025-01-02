@@ -1,13 +1,14 @@
 import tkinter as tk
-from tkinter import ttk
-from PIL import Image, ImageTk
+from tkinter import ttk # Import ttk module for Combobox
+from PIL import Image, ImageTk # Import Image and ImageTk modules from PIL
 
 class UserAccountGUI:
     def __init__(self, root):
+        # Initialize the window
         self.root = root
         self.root.title("User Account")
-        self.root.geometry("1500x600")
-        self.root.configure(bg='#f2f0e3')
+        self.root.geometry("1500x600") # Set the window size
+        self.root.configure(bg='#f2f0e3') # Set the window background color
 
         # Configure styles for ttk widgets
         self.configure_styles()
