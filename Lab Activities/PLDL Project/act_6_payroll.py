@@ -1,8 +1,9 @@
 import tkinter as tk
-from tkinter import ttk
-from payroll_gui import PayrollGUI
+from tkinter import ttk # Import ttk module for Combobox
+from payroll_gui import PayrollGUI # Import PayrollGUI class from payroll_gui.py
 
 def main():
+    # Create the main window
     window = tk.Tk()
     gui = PayrollGUI(window)
 
@@ -125,16 +126,16 @@ def main():
     gui.create_button(x=775, y=870, text='NEW', bg='#ffc107', fg='black')
 
     # Combo Box for Civil Status
-    civil_status = tk.StringVar()
+    civil_status = tk.StringVar() # Variable to store the selected value
     civil_status_combo = ttk.Combobox(window, width=34, textvariable=civil_status)
     civil_status_combo['values'] = (' Single', ' Married', ' Widow', ' Divorced', ' Annulled')
     civil_status_combo.place(x=640, y=210)
-    civil_status_combo.current()
+    civil_status_combo.current() # Set the selected value to None
 
     # Profile Image
     gui.create_image(image_path='no_profile.jpg', x=40, y=130, width=150, height=145)
 
-    window.mainloop()
+    window.mainloop() # Run the main loop
 
 if __name__ == '__main__':
     main()
