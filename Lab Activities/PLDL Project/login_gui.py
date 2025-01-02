@@ -1,18 +1,18 @@
 import tkinter as tk
-from tkinter import ttk
-from PIL import Image, ImageTk
+from tkinter import ttk # Import the ttk module from tkinter
+from PIL import Image, ImageTk # Import the Image and ImageTk modules from the PIL library
 
-class LoginGUI:
+class LoginGUI:  # Create a class for the Login GUI
     def __init__(self, root):
         self.root = root
         self.root.title("Login")
-        self.root.geometry("390x550")
-        self.root.configure(bg='#f2f0e3')
+        self.root.geometry("390x550") # Set the window size
+        self.root.configure(bg='#f2f0e3') # Set the background color of the window
 
         # Load the image
         self.photo = Image.open("profile_circle.png")
         self.photo = self.photo.resize((150, 150))  # Resize the image if needed
-        self.icon = ImageTk.PhotoImage(self.photo)
+        self.icon = ImageTk.PhotoImage(self.photo) # Convert the image to a format that Tkinter can use
 
         # Create a Label widget to display the image
         self.image_label = tk.Label(self.root, image=self.icon, bg='#f2f0e3', borderwidth=2, relief='solid')
@@ -27,11 +27,11 @@ class LoginGUI:
 
         # Create a frame for the login form with additional padding at the top
         self.frame = ttk.Frame(self.root, padding="20 20 20 20")
-        self.frame.grid(row=1, column=0, columnspan=2, padx=20, pady=20, sticky=tk.NSEW)
+        self.frame.grid(row=1, column=0, columnspan=2, padx=20, pady=20, sticky=tk.NSEW) # Add padding to the frame
 
         # Username label and entry
         self.username_label = ttk.Label(self.frame, text="Username:")
-        self.username_label.grid(row=0, column=0, sticky=tk.W, pady=5)
+        self.username_label.grid(row=0, column=0, sticky=tk.W, pady=5) # Align the label to the left
         self.username_entry = ttk.Entry(self.frame, width=35)
         self.username_entry.grid(row=0, column=1, pady=5)
 
@@ -41,18 +41,18 @@ class LoginGUI:
 
         # Frame for password entry and eye icon
         self.password_frame = ttk.Frame(self.frame)
-        self.password_frame.grid(row=1, column=1, sticky=tk.W)
+        self.password_frame.grid(row=1, column=1, sticky=tk.W) # Align the frame to the left
 
         # Password entry
-        self.password_entry = ttk.Entry(self.password_frame, width=30, show="*")
+        self.password_entry = ttk.Entry(self.password_frame, width=30, show="*") # Hide the password
         self.password_entry.grid(row=0, column=0)
 
         # Load eye icon
-        self.eye_icon = Image.open("eye_icon.png")
+        self.eye_icon = Image.open("eye_icon.png") # Load the eye icon image
         self.eye_icon = self.eye_icon.resize((15, 15))
-        self.eye_icon = ImageTk.PhotoImage(self.eye_icon)
+        self.eye_icon = ImageTk.PhotoImage(self.eye_icon) # Convert the image to a format that Tkinter can use
 
-        # Eye button
+        # Eye button to toggle password visibility
         self.show_password_button = ttk.Button(self.password_frame, image=self.eye_icon, command=self.toggle_password)
         self.show_password_button.grid(row=0, column=1, padx=5)
 
@@ -61,7 +61,9 @@ class LoginGUI:
         self.login_button.grid(row=2, column=1, sticky=tk.E, pady=5)
 
     def toggle_password(self):
+        # Toggle the visibility of the password
         if self.password_entry.cget('show') == '*':
             self.password_entry.config(show='')
         else:
             self.password_entry.config(show='*')
+
