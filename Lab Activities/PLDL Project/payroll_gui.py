@@ -1,5 +1,5 @@
-from tkinter import Label, Text, Button, ttk
-from PIL import Image, ImageTk
+from tkinter import Label, Text, Button, ttk # Import Label, Text, Button, and ttk modules
+from PIL import Image, ImageTk # Import Image and ImageTk modules
 
 class PayrollGUI:
     def __init__(self, window):
