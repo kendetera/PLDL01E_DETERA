@@ -1,5 +1,5 @@
 import tkinter as tk
-from user_acc_gui import UserAccountGUI
+from user_acc_gui import UserAccountGUI # Import UserAccountGUI class from user_acc_gui.py
 
 def main():
     # Create the main window
@@ -12,3 +12,4 @@ def main():
 if __name__ == "__main__":
     # Entry point of the program
     main()
+    
