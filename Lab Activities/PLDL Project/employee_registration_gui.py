@@ -1,6 +1,6 @@
 import tkinter as tk
-from tkinter import ttk
-from PIL import Image, ImageTk
+from tkinter import ttk # Import the ttk module from the tkinter library
+from PIL import Image, ImageTk  # Import the Image and ImageTk modules from the PIL library
 
 class EmployeeRegistrationGUI:
     def __init__(self, window):
@@ -18,202 +18,169 @@ class EmployeeRegistrationGUI:
         self.heading.pack(pady=20)
 
         # Frames
-        self.frame1 = tk.Frame(self.window, width=800, height=130, border=0, bg='#f8f3f3', relief='raised', borderwidth=5)
-        self.frame1.place(x=50, y=80)
-        self.frame2 = tk.Frame(self.window, width=800, height=130, border=0, bg='#f8f3f3', relief='raised', borderwidth=5)
-        self.frame2.place(x=50, y=220)
-        self.frame3 = tk.Frame(self.window, width=800, height=110, border=0, bg='#f8f3f3', relief='raised', borderwidth=5)
-        self.frame3.place(x=50, y=380)
-        self.frame4 = tk.Frame(self.window, width=800, height=220, border=0, bg='#f8f3f3', relief='raised', borderwidth=5)
-        self.frame4.place(x=50, y=520)
+        self.create_frames()
 
         # Image
+        self.load_image()
+
+        # Labels and Textboxes in Frame 1
+        self.create_frame1_widgets()
+
+        # Labels and Textboxes in Frame 2
+        self.create_frame2_widgets()
+
+        # Labels and Textboxes in Frame 3
+        self.create_frame3_widgets()
+
+        # Labels and Textboxes in Frame 4
+        self.create_frame4_widgets()
+
+        # Buttons
+        self.create_buttons()
+
+        # Combo boxes
+        self.create_comboboxes()
+
+    def create_frames(self):
+        """Create and place frames in the window."""
+        self.frame1 = self.create_frame(50, 80, 800, 130)
+        self.frame2 = self.create_frame(50, 220, 800, 130)
+        self.frame3 = self.create_frame(50, 380, 800, 110)
+        self.frame4 = self.create_frame(50, 520, 800, 220)
+
+    def create_frame(self, x, y, width, height):
+        """Helper function to create a frame."""
+        frame = tk.Frame(self.window, width=width, height=height, bg='#f8f3f3', relief='raised', borderwidth=5)
+        frame.place(x=x, y=y)
+        return frame
+
+    def load_image(self):
+        """Load and display the profile image."""
         self.image = Image.open("no_profile.jpg")
         self.bck_pic = ImageTk.PhotoImage(self.image.resize((120, 120)))
         self.profile_icon = tk.Label(self.window, image=self.bck_pic, borderwidth=2, relief='solid')
         self.profile_icon.place(x=60, y=25)
 
-        # Labels and Textboxes in Frame 1
-        self.no_file_chosen = tk.Label(self.window, text="No File Chosen", bg='#f8f3f3', font=('Arial', 10))
-        self.no_file_chosen.place(x=75, y=182)
-        self.first_name = tk.Label(self.window, text="First Name", bg='#f8f3f3', font=('Arial', 10))
-        self.first_name.place(x=200, y=90)
-        self.middle_name = tk.Label(self.window, text="Middle Name", bg='#f8f3f3', font=('Arial', 10))
-        self.middle_name.place(x=390, y=90)
-        self.last_name = tk.Label(self.window, text="Last Name", bg='#f8f3f3', font=('Arial', 10))
-        self.last_name.place(x=520, y=90)
-        self.suffix = tk.Label(self.window, text="Suffix", bg='#f8f3f3', font=('Arial', 10))
-        self.suffix.place(x=710, y=90)
-        self.date_of_birth = tk.Label(self.window, text="Date of Birth", bg='#f8f3f3', font=('Arial', 10))
-        self.date_of_birth.place(x=200, y=140)
-        self.gender = tk.Label(self.window, text="Gender", bg='#f8f3f3', font=('Arial', 10))
-        self.gender.place(x=420, y=140)
-        self.nationality = tk.Label(self.window, text="Nationality", bg='#f8f3f3', font=('Arial', 10))
-        self.nationality.place(x=550, y=140)
-        self.civil_status = tk.Label(self.window, text="Civil Status", bg='#f8f3f3', font=('Arial', 10))
-        self.civil_status.place(x=680, y=140)
+    def create_frame1_widgets(self):
+        """Create and place widgets in frame 1."""
+        self.create_label(self.window, "No File Chosen", 75, 182)
+        self.create_label(self.window, "First Name", 200, 90)
+        self.create_label(self.window, "Middle Name", 390, 90)
+        self.create_label(self.window, "Last Name", 520, 90)
+        self.create_label(self.window, "Suffix", 710, 90)
+        self.create_label(self.window, "Date of Birth", 200, 140)
+        self.create_label(self.window, "Gender", 420, 140)
+        self.create_label(self.window, "Nationality", 550, 140)
+        self.create_label(self.window, "Civil Status", 680, 140)
 
-        self.first_name_entry = ttk.Entry(self.window, width=30, font=('Arial', 8))
-        self.first_name_entry.place(x=200, y=110)
-        self.middle_name_entry = ttk.Entry(self.window, width=20, font=('Arial', 8))
-        self.middle_name_entry.place(x=390, y=110)
-        self.last_name_entry = ttk.Entry(self.window, width=30, font=('Arial', 8))
-        self.last_name_entry.place(x=520, y=110)
-        self.suffix_entry = ttk.Entry(self.window, width=20, font=('Arial', 8))
-        self.suffix_entry.place(x=710, y=110)
+        self.create_entry(self.window, 30, 200, 110)
+        self.create_entry(self.window, 20, 390, 110)
+        self.create_entry(self.window, 30, 520, 110)
+        self.create_entry(self.window, 20, 710, 110)
+        self.create_entry(self.window, 20, 420, 160)
+        self.create_entry(self.window, 20, 550, 160)
+        self.create_entry(self.window, 25, 680, 160)
 
-        self.gender_entry = ttk.Entry(self.window, width=20, font=('Arial', 8))
-        self.gender_entry.place(x=420, y=160)
-        self.nationality_entry = ttk.Entry(self.window, width=20, font=('Arial', 8))
-        self.nationality_entry.place(x=550, y=160)
-        self.civil_status_entry = ttk.Entry(self.window, width=25, font=('Arial', 8))
-        self.civil_status_entry.place(x=680, y=160)
+    def create_frame2_widgets(self):
+        """Create and place widgets in frame 2."""
+        self.create_label(self.window, "Department", 75, 230)
+        self.create_label(self.window, "Designation", 387, 230)
+        self.create_label(self.window, "Qualified Dep. Status", 610, 230)
+        self.create_label(self.window, "Employee Status", 75, 280)
+        self.create_label(self.window, "Pay Date", 448, 280)
+        self.create_label(self.window, "Employee Number", 610, 280)
 
-        # Labels and Textboxes in Frame 2
-        self.department = tk.Label(self.window, text="Department", bg='#f8f3f3', font=('Arial', 10))
-        self.department.place(x=75, y=230)
-        self.designation = tk.Label(self.window, text="Designation", bg='#f8f3f3', font=('Arial', 10))
-        self.designation.place(x=387, y=230)
-        self.qualified_dependents_status = tk.Label(self.window, text="Qualified Dep. Status", bg='#f8f3f3', font=('Arial', 10))
-        self.qualified_dependents_status.place(x=610, y=230)
-        self.employee_status = tk.Label(self.window, text="Employee Status", bg='#f8f3f3', font=('Arial', 10))
-        self.employee_status.place(x=75, y=280)
-        self.pay_date = tk.Label(self.window, text="Pay Date", bg='#f8f3f3', font=('Arial', 10))
-        self.pay_date.place(x=448, y=280)
-        self.employee_number = tk.Label(self.window, text="Employee Number", bg='#f8f3f3', font=('Arial', 10))
-        self.employee_number.place(x=610, y=280)
+        self.create_entry(self.window, 50, 75, 250)
+        self.create_entry(self.window, 35, 387, 250)
+        self.create_entry(self.window, 37, 610, 250)
+        self.create_entry(self.window, 60, 75, 300)
+        self.create_entry(self.window, 25, 448, 300)
+        self.create_entry(self.window, 37, 610, 300)
 
-        self.department_entry = ttk.Entry(self.window, width=50, font=('Arial', 8))
-        self.department_entry.place(x=75, y=250)
-        self.designation_entry = ttk.Entry(self.window, width=35, font=('Arial', 8))
-        self.designation_entry.place(x=387, y=250)
-        self.qualified_dependents_status_entry = ttk.Entry(self.window, width=37, font=('Arial', 8))
-        self.qualified_dependents_status_entry.place(x=610, y=250)
-        self.employee_status_entry = ttk.Entry(self.window, width=60, font=('Arial', 8))
-        self.employee_status_entry.place(x=75, y=300)
-        self.pay_date_entry = ttk.Entry(self.window, width=25, font=('Arial', 8))
-        self.pay_date_entry.place(x=448, y=300)
-        self.employee_number_entry = ttk.Entry(self.window, width=37, font=('Arial', 8))
-        self.employee_number_entry.place(x=610, y=300)
+    def create_frame3_widgets(self):
+        """Create and place widgets in frame 3."""
+        self.create_label(self.window, "Contact Info:", 50, 355, font=('Times New Roman', 12, 'bold'))
+        self.create_label(self.window, "Contact No.", 75, 390)
+        self.create_label(self.window, "Email", 390, 390)
+        self.create_label(self.window, "Other(Social Media)", 75, 435)
+        self.create_label(self.window, "Social Media Account ID/No.", 390, 435)
 
-        # Labels and Textboxes in Frame 3
-        self.contact_info = tk.Label(self.window, text="Contact Info:", fg='black', font=('Times New Roman', 12, 'bold'))
-        self.contact_info.place(x=50, y=355)
-        self.contact_no = tk.Label(self.window, text="Contact No.", bg='#f8f3f3', font=('Arial', 10))
-        self.contact_no.place(x=75, y=390)
-        self.email = tk.Label(self.window, text="Email", bg='#f8f3f3', font=('Arial', 10))
-        self.email.place(x=390, y=390)
-        self.other = tk.Label(self.window, text="Other(Social Media)", bg='#f8f3f3', font=('Arial', 10))
-        self.other.place(x=75, y=435)
-        self.soc_med_acc = tk.Label(self.window, text="Social Media Account ID/No.", bg='#f8f3f3', font=('Arial', 10))
-        self.soc_med_acc.place(x=390, y=435)
+        self.create_entry(self.window, 50, 75, 410)
+        self.create_entry(self.window, 73, 390, 410)
+        self.create_entry(self.window, 50, 75, 455)
+        self.create_entry(self.window, 73, 390, 455)
 
-        self.contact_no_entry = ttk.Entry(self.window, width=50, font=('Arial', 8))
-        self.contact_no_entry.place(x=75, y=410)
-        self.email_entry = ttk.Entry(self.window, width=73, font=('Arial', 8))
-        self.email_entry.place(x=390, y=410)
-        self.other_entry = ttk.Entry(self.window, width=50, font=('Arial', 8))
-        self.other_entry.place(x=75, y=455)
-        self.soc_med_acc_entry = ttk.Entry(self.window, width=73, font=('Arial', 8))
-        self.soc_med_acc_entry.place(x=390, y=455)
+    def create_frame4_widgets(self):
+        """Create and place widgets in frame 4."""
+        self.create_label(self.window, "Address:", 50, 495, font=('Times New Roman', 12, 'bold'))
+        self.create_label(self.window, "Address Line 1", 75, 525)
+        self.create_label(self.window, "Address Line 2", 75, 565)
+        self.create_label(self.window, "City/Municipality", 75, 605)
+        self.create_label(self.window, "State/Province", 458, 605)
+        self.create_label(self.window, "Country", 75, 643)
+        self.create_label(self.window, "Zip Code", 458, 643)
+        self.create_label(self.window, "Picture Path", 75, 680)
 
-        # Labels and Textboxes in Frame 4
-        self.address = tk.Label(self.window, text="Address:", fg='black', font=('Times New Roman', 12, 'bold'))
-        self.address.place(x=50, y=495)
-        self.add_line1 = tk.Label(self.window, text="Address Line 1", bg='#f8f3f3', font=('Arial', 10))
-        self.add_line1.place(x=75, y=525)
-        self.add_line2 = tk.Label(self.window, text="Address Line 2", bg='#f8f3f3', font=('Arial', 10))
-        self.add_line2.place(x=75, y=565)
-        self.city_municipality = tk.Label(self.window, text="City/Municipality", bg='#f8f3f3', font=('Arial', 10))
-        self.city_municipality.place(x=75, y=605)
-        self.state_province = tk.Label(self.window, text="State/Province", bg='#f8f3f3', font=('Arial', 10))
-        self.state_province.place(x=458, y=605)
-        self.country = tk.Label(self.window, text="Country", bg='#f8f3f3', font=('Arial', 10))
-        self.country.place(x=75, y=643)
-        self.zip_code = tk.Label(self.window, text="Zip Code", bg='#f8f3f3', font=('Arial', 10))
-        self.zip_code.place(x=458, y=643)
-        self.pic_path = tk.Label(self.window, text="Picture Path", bg='#f8f3f3', font=('Arial', 10))
-        self.pic_path.place(x=75, y=680)
+        self.create_entry(self.window, 126, 75, 545)
+        self.create_entry(self.window, 126, 75, 585)
+        self.create_entry(self.window, 62, 75, 625)
+        self.create_entry(self.window, 62, 458, 625)
+        self.create_entry(self.window, 62, 75, 663)
+        self.create_entry(self.window, 62, 458, 663)
+        self.create_entry(self.window, 126, 75, 700)
 
-        self.add_line1_entry = ttk.Entry(self.window, width=126, font=('Arial', 8))
-        self.add_line1_entry.place(x=75, y=545)
-        self.add_line2_entry = ttk.Entry(self.window, width=126, font=('Arial', 8))
-        self.add_line2_entry.place(x=75, y=585)
-        self.city_municipality_entry = ttk.Entry(self.window, width=62, font=('Arial', 8))
-        self.city_municipality_entry.place(x=75, y=625)
-        self.state_province_entry = ttk.Entry(self.window, width=62, font=('Arial', 8))
-        self.state_province_entry.place(x=458, y=625)
-        self.country_entry = ttk.Entry(self.window, width=62, font=('Arial', 8))
-        self.country_entry.place(x=75, y=663)
-        self.zip_code_entry = ttk.Entry(self.window, width=62, font=('Arial', 8))
-        self.zip_code_entry.place(x=458, y=663)
-        self.pic_path_entry = ttk.Entry(self.window, width=126, font=('Arial', 8))
-        self.pic_path_entry.place(x=75, y=700)
+    def create_buttons(self):
+        """Create and place buttons in the window."""
+        self.create_button(self.window, 'Choose File', 63, 150)
+        self.create_button(self.window, 'Save', 50, 750, bg='#007bff', fg='white')
+        self.create_button(self.window, 'Cancel', 160, 750)
 
-        # Buttons
-        self.upload_button = tk.Button(self.window, width=10, padx=10, text='Choose File',
-                                       bg='white', fg='black', cursor='hand2', border=5)
-        self.upload_button.place(x=63, y=150)
-        self.save_button = tk.Button(self.window, width=10, padx=10, text='Save',
-                                     bg='#007bff', fg='white', cursor='hand2', border=5)
-        self.save_button.place(x=50, y=750)
-        self.cancel_button = tk.Button(self.window, width=10, padx=10, text='Cancel',
-                                       bg='white', fg='black', cursor='hand2', border=5)
-        self.cancel_button.place(x=160, y=750)
+    def create_comboboxes(self):
+        """Create and place combo boxes in the window."""
+        self.create_combobox(self.window, [str(i) for i in range(1, 32)], 5, 200, 160) # Days
+        self.create_combobox(self.window, ['January', 'February', 'March', 'April', 'May',
+                                           'June', 'July', 'August', 'September', 'October',
+                                           'November', 'December'], 10, 260, 160) # Months
+        self.create_combobox(self.window, [str(i) for i in range(1900, 2026)], 7, 350, 160) # Years
 
-        # Combo boxes
-        # Date of Birth Combo boxes
-        self.day_combo = ttk.Combobox(self.window, width=5)
-        self.day_combo['values'] = [str(i) for i in range(1, 32)] # dropdown list of days from 1 to 31
-        self.day_combo.place(x=200, y=160)
-        self.day_combo.current()
+        self.create_combobox(self.window, ['Male', 'Female'], 17, 422, 160) # Gender
+        self.create_combobox(self.window, ['Single', 'Married', 'Widow',
+                                           'Divorced', 'Annulled'], 22, 680, 160) # Civil Status
 
-        self.month_combo = ttk.Combobox(self.window, width=10)
-        self.month_combo['values'] = ['January', 'February', 'March', 'April',
-                                      'May', 'June', 'July', 'August', 'September',
-                                      'October', 'November', 'December']
-        self.month_combo.place(x=260, y=160)
-        self.month_combo.current()
+        self.create_combobox(self.window, ['American', 'Argentinian', 'Australian', 'Bangladeshi',
+                                           'Brazilian', 'British', 'Canadian', 'Chilean', 'Chinese', 'Colombian',
+                                           'Dutch', 'Egyptian', 'Filipino', 'French', 'German', 'Greek', 'Indian',
+                                           'Indonesian', 'Iraqi', 'Italian', 'Japanese', 'Kenyan', 'Korean',
+                                           'Malaysian', 'Mexican', 'Nigerian', 'Pakistani', 'Peruvian', 'Polish',
+                                           'Portuguese', 'Russian', 'Singaporean', 'South African', 'Spanish',
+                                           'Sri Lankan', 'Swedish', 'Thai', 'Turkish', 'Ukrainian',
+                                           'Venezuelan', 'Vietnamese'], 17, 550, 160) # Nationalities
 
-        self.year_combo = ttk.Combobox(self.window, width=7)
-        self.year_combo['values'] = [str(i) for i in range(1900, 2026)]  # dropdown list of years from 1900 to 2025
-        self.year_combo.place(x=350, y=160)
-        self.year_combo.current()
+        self.create_combobox(self.window, ['Facebook', 'Instagram', 'Twitter', 'Youtube',
+                                           'Tiktok', 'Snapchat', 'Pinterest', 'Messenger',
+                                           'Telegram', 'Twitch'], 47, 75, 455) # Social Media
+        self.create_combobox(self.window, ['Brazil', 'Cambodia', 'China', 'Indonesia', 'Japan',
+                                           'Russia', 'Philippines', 'Poland', 'Portugal', 'South Korea',
+                                           'Thailand', 'United States', 'Vietnam'], 59, 75, 663) # Countries
 
-        # Gender combo box
-        self.gender_combo = ttk.Combobox(self.window, width=17)
-        self.gender_combo['values'] = ('Male', 'Female')
-        self.gender_combo.place(x=422, y=160)
-        self.gender_combo.current()
+    def create_label(self, parent, text, x, y, font=('Arial', 10)):
+        """Helper function to create a label."""
+        label = tk.Label(parent, text=text, bg='#f8f3f3', font=font)
+        label.place(x=x, y=y)
 
-        self.civil_status_combo = ttk.Combobox(self.window, width=22)
-        self.civil_status_combo['values'] = ('Single', 'Married', 'Widow', 'Divorced', ' Annulled')
-        self.civil_status_combo.place(x=680, y=160)
-        self.civil_status_combo.current()
+    def create_entry(self, parent, width, x, y, font=('Arial', 8)):
+        """Helper function to create an entry."""
+        entry = ttk.Entry(parent, width=width, font=font)
+        entry.place(x=x, y=y)
 
-        self.nationality_combo = ttk.Combobox(self.window, width=17)
-        self.nationality_combo['values'] = (
-            'American', 'Argentinian', 'Australian', 'Bangladeshi', 'Brazilian', 'British', 'Canadian', 'Chilean',
-            'Chinese', 'Colombian', 'Dutch', 'Egyptian', 'Filipino', 'French', 'German', 'Greek', 'Indian', 'Indonesian',
-            'Iraqi', 'Italian', 'Japanese', 'Kenyan', 'Korean', 'Malaysian', 'Mexican', 'Nigerian','Pakistani',
-            'Peruvian', 'Polish', 'Portuguese', 'Russian', 'Singaporean', 'South African', 'Spanish',
-            'Sri Lankan', 'Swedish', 'Thai', 'Turkish', 'Ukrainian', 'Venezuelan', 'Vietnamese')
-        self.nationality_combo.place(x=550, y=160)
-        self.nationality_combo.current()
+    def create_button(self, parent, text, x, y, bg='white', fg='black'):
+        """Helper function to create a button."""
+        button = tk.Button(parent, text=text, width=10, padx=10, bg=bg, fg=fg, cursor='hand2', border=5)
+        button.place(x=x, y=y)
 
-        self.social_media_combo = ttk.Combobox(self.window, width=47)
-        self.social_media_combo['values'] = ('Facebook', 'Instagram', 'Twitter', 'Youtube', ' Tiktok', 'Snapchat',
-                                             'Pinterest', 'Messenger', 'Telegram', 'Twitch')
-        self.social_media_combo.place(x=75, y=455)
-        self.social_media_combo.current()
-
-        self.country_combo = ttk.Combobox(self.window, width=59)
-        self.country_combo['values'] = ('Brazil', 'Cambodia', 'China', 'Indonesia', 'Japan', 'Russia', 'Philippines',
-                                        'Poland', 'Portugal', 'South Korea', 'Thailand', 'United States', 'Vietnam')
-        self.country_combo.place(x=75, y=663)
-        self.country_combo.current()
-
-if __name__ == "__main__":
-    window = tk.Tk()
-    _app = EmployeeRegistrationGUI(window)
-    window.mainloop()
+    def create_combobox(self, parent, values, width, x, y):
+        """Helper function to create a combobox."""
+        combobox = ttk.Combobox(parent, width=width)
+        combobox['values'] = values
+        combobox.place(x=x, y=y)
+        combobox.current()
