@@ -1,7 +1,4 @@
-# gui_design.py
-import tkinter as tk
 from tkinter import Label, Frame, Text  # import the necessary classes from the tkinter module
-from PIL import Image, ImageTk  # import the Image and ImageTk classes from the PIL module
 
 class AssessmentFormGUI:  # create a class named AssessmentFormGUI
     def __init__(self, window):
