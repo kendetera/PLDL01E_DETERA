@@ -1,10 +1,9 @@
 import tkinter as tk
-from tkinter import ttk
-from meralco_gui import MeralcoGUI
+from meralco_gui import MeralcoGUI # Import the MeralcoGUI class from meralco_gui.py
 
 def main():
-    window = tk.Tk()
-    gui = MeralcoGUI(window)
+    window = tk.Tk() # Create a Tkinter window
+    gui = MeralcoGUI(window) # Create an instance of MeralcoGUI
 
     # Labels for left column
     gui.create_label1(x=20, y=20, text='JUAN DELA CRUZ')
@@ -59,8 +58,8 @@ def main():
     # meralco logo
     gui.create_image(image_path='Meralco_Logo.png', x=705, y=20, width=160, height=140)
 
-    window.mainloop()
+    window.mainloop() # Run the Tkinter event loop
 
 
 if __name__ == '__main__':
-    main()
+    main() # Call the main function
