@@ -1,56 +1,19 @@
 import tkinter as tk
-from tkinter import Label, Frame, Text
-from PIL import Image, ImageTk
-
-class GuiDesign:
-    def __init__(self, window):
-        self.window = window
-
-    def create_frame1(self, x, y, width=1100, height=160, border=10, bg='#a2262f', relief='raised'):
-        frame = Frame(self.window, width=width, height=height, border=border, bg=bg, relief='raised')
-        frame.place(x=x, y=y)
-        return frame
-
-    def create_frame2(self, x, y, width=1100, height=100, border=10, bg='#a2262f', relief='raised'):
-        frame = Frame(self.window, width=width, height=height, border=border, bg=bg, relief='raised')
-        frame.place(x=x, y=y)
-        return
-
-    def create_frame3(self, x, y, width=1100, height=350, border=10, bg='#a2262f', relief='raised'):
-        frame = Frame(self.window, width=width, height=height, border=border, bg=bg, relief='raised')
-        frame.place(x=x, y=y)
-        return frame
-
-    def create_textbox1(self, x, y, width=25, height=1, fg='black', bg='white', font=('Arial', 11)):
-        textbox = Text(self.window, width=width, height=height, fg=fg, bg=bg, font=font)
-        textbox.place(x=x, y=y)
-        return textbox
-
-    def create_textbox2(self, x, y, width=22, height=1, fg='black', bg='white', font=('Arial', 11)):
-        textbox = Text(self.window, width=width, height=height, fg=fg, bg=bg, font=font)
-        textbox.place(x=x, y=y)
-        return textbox
-
-    def create_label(self, x, y, text, fg='white', bg='#a2262f', font=('Times New Roman', 12, 'bold')):
-        label = Label(self.window, text=text, fg=fg, bg=bg, font=font)
-        label.place(x=x, y=y)
-        return label
+from PIL import Image, ImageTk  # import the Image and ImageTk classes from the PIL module
+from assessment_form_gui import AssessmentFormGUI  # import the AssessmentFormGUI class
 
 def main():
-    window = tk.Tk()
-    window.title("Assessment Form")
-    window.geometry('1920x1080')
-    window.configure(bg='#807F7D')
+    window = tk.Tk()  # create the main window
+    window.title("Assessment Form")  # set the window title
+    window.geometry('1920x1080')  # set the window size
+    window.configure(bg='#807F7D')  # set the window background color
 
-    # Open the image file
-    image = Image.open('LPU_Banner.png')
-    # Resize the image
-    bck_pic = ImageTk.PhotoImage(image.resize((1200, 140)))
-    # Create a label to display the image
-    lbl = tk.Label(window, image=bck_pic, bg='#807F7D')
-    lbl.place(x=1, y=1)
+    image = Image.open('LPU_Banner.png')  # open the image file
+    bck_pic = ImageTk.PhotoImage(image.resize((1200, 140)))  # resize the image and convert it to a PhotoImage object
+    lbl = tk.Label(window, image=bck_pic, bg='#807F7D')  # create a Label widget to display the image
+    lbl.place(x=1, y=1)  # place the label at the specified coordinates
 
-    gui = GuiDesign(window)
+    gui = AssessmentFormGUI(window)  # initialize the AssessmentFormGUI class
 
     # Create frames
     gui.create_frame1(220, 220)
@@ -87,7 +50,6 @@ def main():
     gui.create_textbox2(800, 790)
     gui.create_textbox2(1050, 790)
 
-
     # Create labels in the first frame
     gui.create_label(300, 235, 'Student Name')
     gui.create_label(630, 235, 'Student Number')
@@ -100,7 +62,7 @@ def main():
     gui.create_label(630, 420, 'Subjects')
     gui.create_label(950, 420, 'Units')
 
-    # crate labels in the third frame
+    # Create labels in the third frame
     gui.create_label(300, 550, 'ADU Chronicle Fee')
     gui.create_label(550, 550, 'Athletic Fee')
     gui.create_label(800, 550, 'Audio Visual Library Fee')
@@ -118,7 +80,7 @@ def main():
     gui.create_label(800, 760, 'Student Nurturance Fee')
     gui.create_label(1050, 760, 'Technology Fee')
 
-    window.mainloop()
+    window.mainloop()  # start the Tkinter event loop
 
 if __name__ == '__main__':
-    main()
+    main()  # call the main function
