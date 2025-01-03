@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import ttk # Import ttk module 
+from tkinter import ttk # Import ttk module
 from PIL import Image, ImageTk # Import Image and ImageTk modules from PIL
 
 class LoginGUI:
